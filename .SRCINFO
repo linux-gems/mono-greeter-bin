@@ -1,6 +1,6 @@
 pkgbase = mono-greeter-bin
 	pkgdesc = A keyboard-first greeter for greetd, in a terminal: cage + foot + ratatui (prebuilt binary)
-	pkgver = 0.1.1
+	pkgver = 0.1.2
 	pkgrel = 1
 	url = https://github.com/rafiibrahim8/mono-greeter
 	install = mono-greeter-bin.install
@@ -12,7 +12,7 @@ pkgbase = mono-greeter-bin
 	depends = glibc
 	depends = greetd
 	depends = systemd
-	depends = ttf-hack-nerd
+	optdepends = ttf-hack-nerd: the intended font (otherwise the default monospace font)
 	optdepends = kwallet-pam: unlock KDE Wallet at login
 	optdepends = gnome-keyring: unlock GNOME Keyring at login
 	optdepends = xorg-xinit: X11 sessions (started through startx)
@@ -22,7 +22,7 @@ pkgbase = mono-greeter-bin
 	options = !debug
 	backup = etc/mono-greeter/foot.ini
 	backup = etc/pam.d/mono-greeter
-	source = mono-greeter-0.1.1-linux-x86_64.tar.gz::https://github.com/rafiibrahim8/mono-greeter/releases/download/v0.1.1/mono-greeter-v0.1.1-linux-x86_64.tar.gz
-	sha256sums = 8edeae3526efad39553b01be2bda454ceb388ec4456236865f59982637c430dc
+	source = mono-greeter-0.1.2-linux-x86_64.tar.gz::https://github.com/rafiibrahim8/mono-greeter/releases/download/v0.1.2/mono-greeter-v0.1.2-linux-x86_64.tar.gz
+	sha256sums = 923c4cbcf08dbd54a3ef3f81746594eb3bb1bb22f9ecc3b1fdb9cf10471d9a78
 
 pkgname = mono-greeter-bin
