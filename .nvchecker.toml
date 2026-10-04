@@ -1,0 +1,5 @@
+[mono-greeter-bin]
+source = "github"
+github = "rafiibrahim8/mono-greeter"
+use_latest_release = true
+prefix = "v"

@@ -1,0 +1,18 @@
+post_install() {
+  cat <<'EOF'
+==> mono-greeter: greetd now starts mono-greeter (drop-in for greetd.service).
+    To make greetd the login screen, disable the current display manager and
+    enable greetd, then reboot:
+      systemctl disable <current dm>      # eg lightdm, sddm, gdm, ...
+      systemctl enable greetd
+    Details: /usr/share/doc/mono-greeter/README.md
+EOF
+}
+
+post_remove() {
+  cat <<'EOF'
+==> mono-greeter: removed. If greetd is still enabled it now runs the greeter from
+    /etc/greetd/config.toml (agreety by default). Re-enable your old display manager:
+      systemctl disable greetd && systemctl enable <a display manager>   # eg lightdm, sddm, gdm
+EOF
+}
