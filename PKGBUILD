@@ -2,7 +2,7 @@
 
 pkgname=mono-greeter-bin
 _pkgname=mono-greeter
-pkgver=0.1.2
+pkgver=0.1.3
 pkgrel=1
 pkgdesc="A keyboard-first greeter for greetd, in a terminal: cage + foot + ratatui (prebuilt binary)"
 arch=('x86_64')
@@ -20,12 +20,13 @@ backup=('etc/mono-greeter/foot.ini'
 options=(!strip !debug)
 install="${pkgname}.install"
 source=("${_pkgname}-${pkgver}-linux-x86_64.tar.gz::${url}/releases/download/v${pkgver}/${_pkgname}-v${pkgver}-linux-x86_64.tar.gz")
-sha256sums=('923c4cbcf08dbd54a3ef3f81746594eb3bb1bb22f9ecc3b1fdb9cf10471d9a78')
+sha256sums=('4083f97f16e08db5cc3525db3830fde95566077ff1e94145b0bf7440cee6d006')
 
 package() {
   cd "${_pkgname}-v${pkgver}-linux-x86_64"
 
-  install -Dm755 mono-greeter "${pkgdir}/usr/bin/mono-greeter"
+  # greetd runs it; not a user command, so not in /usr/bin
+  install -Dm755 mono-greeter "${pkgdir}/usr/lib/${_pkgname}/mono-greeter"
   install -Dm644 greetd.toml greetd-test-vt2.toml -t "${pkgdir}/usr/share/${_pkgname}/"
 
   # greetd runs mono-greeter through this drop-in (greetd --config), so greetd's own
